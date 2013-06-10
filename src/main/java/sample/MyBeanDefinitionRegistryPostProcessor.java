@@ -20,6 +20,14 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 
+/**
+ * Spring Security needs to be able to detect bean definitions and modify /
+ * create bean definitions based upon the other bean definitions. Here is a very
+ * simplified example that illustrates what might need to be done.
+ *
+ * @author Rob Winch
+ *
+ */
 public class MyBeanDefinitionRegistryPostProcessor implements
         BeanDefinitionRegistryPostProcessor {
 

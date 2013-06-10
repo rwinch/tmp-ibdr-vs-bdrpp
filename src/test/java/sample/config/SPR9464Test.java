@@ -21,7 +21,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import sample.MyBeanDefinitionRegistryPostProcessor;
+
 /**
+ * This does not work because
+ * {@link MyBeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry(org.springframework.beans.factory.support.BeanDefinitionRegistry)}
+ * is never invoked as discussed on SPR-9464
+ *
  * @author Rob Winch
  *
  */

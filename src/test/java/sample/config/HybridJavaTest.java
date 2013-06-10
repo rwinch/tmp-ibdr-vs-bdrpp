@@ -18,10 +18,21 @@ package sample.config;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ConfigurationClassPostProcessor;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import sample.MyBeanDefinitionRegistryPostProcessor;
+
 /**
+ * This demonstrates that even if {@link MyBeanDefinitionRegistryPostProcessor}
+ * is configured in XML and loaded with a Java Config {@link ApplicationContext}
+ * it does not work. This is not unexpected since it
+ * {@link ConfigurationClassPostProcessor} is trying to register a
+ * {@link BeanDefinitionRegistryPostProcessor} which won't work.
+ *
  * @author Rob Winch
  *
  */

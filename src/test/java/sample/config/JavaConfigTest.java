@@ -18,10 +18,20 @@ package sample.config;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.support.BeanDefinitionRegistry;
+import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
+import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
+ * This demonstrates that the workaround for SPR-9464 of using an
+ * {@link ImportBeanDefinitionRegistrar} does not work since the bean is not yet
+ * in the {@link BeanDefinitionRegistry}. We need all beans registered as is
+ * guaranteed with {@link BeanDefinitionRegistryPostProcessor}. Specifically the
+ * javadoc of {@link BeanDefinitionRegistryPostProcessor} states
+ * "All regular bean definitions will have been loaded".
+ *
  * @author Rob Winch
  *
  */

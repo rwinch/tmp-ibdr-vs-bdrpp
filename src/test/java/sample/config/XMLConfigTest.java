@@ -22,12 +22,16 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
+ *
+ * Notice that the equivalent configuration works when using an XML
+ * ApplicationContext.
+ *
  * @author Rob Winch
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:bdrpp-myBean.xml")
-public class XMLConfigTest{
+public class XMLConfigTest {
     @Autowired
     private MyDynamicallyRegisteredClass registered;
 

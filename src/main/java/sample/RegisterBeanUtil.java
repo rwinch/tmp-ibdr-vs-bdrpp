@@ -23,11 +23,22 @@ import sample.config.MyDynamicallyRegisteredClass;
 
 /**
  * Consistent way of registering the {@link MyDynamicallyRegisteredClass}
+ *
  * @author Rob Winch
  *
  */
 class RegisterBeanUtil {
 
+    /**
+     * We only want to create {@link MyDynamicallyRegisteredClass} if we detect
+     * a bean of a particular name exists. More generally Spring Security will
+     * need to create bean definitions based upon the completely populated
+     * {@link BeanDefinitionRegistry}.
+     *
+     * @param beanName
+     * @param registry
+     * @throws BeansException
+     */
     static void registerCustom(String beanName,
             BeanDefinitionRegistry registry) throws BeansException {
         boolean beanExists = registry.containsBeanDefinition(beanName);
